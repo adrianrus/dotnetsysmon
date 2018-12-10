@@ -8,6 +8,6 @@ Frequency=3507519 Hz, Resolution=285.1018 ns, Timer=TSC
 
 
 ```
-| Method |     Mean |    Error |   StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
-|------- |---------:|---------:|---------:|------------:|------------:|------------:|--------------------:|
-|    Get | 520.2 ms | 10.32 ms | 14.47 ms |           - |           - |           - |             1.14 MB |
+| Method |     Mean |     Error |    StdDev | Gen 0/1k Op | Gen 1/1k Op | Gen 2/1k Op | Allocated Memory/Op |
+|------- |---------:|----------:|----------:|------------:|------------:|------------:|--------------------:|
+|    Get | 7.054 ms | 0.0722 ms | 0.0640 ms |     39.0625 |           - |           - |           188.52 KB |

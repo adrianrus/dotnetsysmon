@@ -1,23 +1,24 @@
 ﻿using DotnetSysMon.Cpu;
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
 
 namespace DotnetSysMon.Cpu.Demo
 {
-    class Program
+    internal class Program
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Starting cpu user...");
-            
+            int cpuUsageSample = 5;
             CpuUsage cpu = new CpuUsage();
             PrintTop3(cpu);
-            Observable.Interval(TimeSpan.FromSeconds(5)).Subscribe(_=> PrintTop3(cpu));
+            Observable.Interval(TimeSpan.FromSeconds(cpuUsageSample)).Subscribe(_ => PrintTop3(cpu));
 
             Console.WriteLine("Processor count: {0}", Environment.ProcessorCount);
-            Console.WriteLine("Press any to increase load.");
+            Console.WriteLine("Sample interval {0}", cpuUsageSample);
+            Console.WriteLine("Press any key to increase load.");
             while (true)
             {
                 Processor();
@@ -31,8 +32,9 @@ namespace DotnetSysMon.Cpu.Demo
 
             foreach (var item in items)
             {
-                Console.WriteLine("{0} {1:P}", item.Item1.ProcessName, item.Item2);
+                Console.WriteLine("  {0} {1:P}", item.ExeFilename, item.CpuUsage);
             }
+            Console.WriteLine();
         }
 
         private static int _threadCount = 1;

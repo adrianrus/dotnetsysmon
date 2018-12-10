@@ -6,18 +6,26 @@ using System.Linq;
 
 namespace DotnetSysMon.Cpu
 {
-    public class CpuUsage
+    public partial class CpuUsage
     {
-        public IEnumerable<Tuple<Process, double>> GetProcessesDescending()
+        public IEnumerable<ProcessCpuUsage> GetProcessesDescending()
         {
-            var newProcessData = new Dictionary<Tuple<DateTime, int>, CpuData>();
+            return GetProcesses().OrderByDescending(p => p.CpuUsage);
+        }
+
+        public IEnumerable<ProcessCpuUsage> GetProcesses()
+        {
+            var oldData = _processData;
+            var newProcessData = new Dictionary<int, CpuData>();
 
             try
             {
-                return Process.GetProcesses()
-                    .Select(p => Tuple.Create(p, Get(_processData, newProcessData, p)))
-                    .OrderByDescending(x => x.Item2)
-                    .ToList();
+                return Win32ApiProcessProvider.GetAllProcesses()
+                    .Select(p => new ProcessCpuUsage(p.Info.ExeFile, (int)p.Info.th32ProcessID, Get(
+                        oldData,
+                        newProcessData,
+                        p.Info.th32ProcessID,
+                        p.TotalProcessorTime)));
             }
             finally
             {
@@ -27,31 +35,30 @@ namespace DotnetSysMon.Cpu
 
         public double Get(Process process)
         {
-            return Get(_processData, _processData, process);
+            return Get(_processData, _processData, process.Id, GetTotalProcessorTime(process));
         }
 
         internal double Get(
-            Dictionary<Tuple<DateTime, int>, CpuData> processData,
-            Dictionary<Tuple<DateTime, int>, CpuData> newProcessData,
-            Process process)
+            Dictionary<int, CpuData> processData,
+            Dictionary<int, CpuData> newProcessData,
+            int id,
+            TimeSpan? cpuTime)
         {
-            var cpu = GetTotalProcessorTime(process);
-            if (!cpu.HasValue) return Double.NaN;
+            if (!cpuTime.HasValue) return Double.NaN;
 
-            var key = Tuple.Create(process.StartTime, process.Id);
             CpuData data;
-            if (processData.TryGetValue(key, out data))
+            if (processData.TryGetValue(id, out data))
             {
-                TimeSpan newCPUTime = cpu.Value;
+                TimeSpan newCPUTime = cpuTime.Value;
                 var cpuUsage = (newCPUTime - data.OldCpuTime).TotalSeconds / (Environment.ProcessorCount * DateTime.UtcNow.Subtract(data.LastMonitorTime).TotalSeconds);
 
                 data.LastMonitorTime = DateTime.UtcNow;
                 data.OldCpuTime = newCPUTime;
-                newProcessData[key] = data;
+                newProcessData[id] = data;
                 return cpuUsage;
             }
 
-            newProcessData.Add(key, new CpuData(cpu.Value));
+            newProcessData.Add(id, new CpuData(cpuTime.Value));
             return Double.NaN;
         }
 
@@ -67,7 +74,7 @@ namespace DotnetSysMon.Cpu
             public DateTime LastMonitorTime { get; set; }
         }
 
-        private Dictionary<Tuple<DateTime, int>, CpuData> _processData = new Dictionary<Tuple<DateTime, int>, CpuData>();
+        private Dictionary<int, CpuData> _processData = new Dictionary<int, CpuData>();
 
         private static TimeSpan? GetTotalProcessorTime(Process process)
         {

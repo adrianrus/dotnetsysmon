@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.benchmark"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.demo", "dotnetsysmon.cpu.demo\dotnetsysmon.cpu.demo.csproj", "{97F4E159-3FDE-4A32-BC89-04AED7619CB6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.tests", "dotnetsysmon.cpu.tests\dotnetsysmon.cpu.tests.csproj", "{70249CB1-8F7E-4C71-993D-9286E39CE10A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{97F4E159-3FDE-4A32-BC89-04AED7619CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F4E159-3FDE-4A32-BC89-04AED7619CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F4E159-3FDE-4A32-BC89-04AED7619CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
