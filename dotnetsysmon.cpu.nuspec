@@ -2,13 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <id>dotnetsysmon.cpu</id>
-        <version>1.1.0</version>
+        <version>1.1.1</version>
         <title>dotnetsysmon.cpu</title>
         <authors>arus</authors>
         <projectUrl>https://github.com/adrianrus/dotnetsysmon</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Monitor CPU usage</description>
         <language />
+        <dependencies>
+            <dependency id="PInvoke.Kernel32" version="0.5.155" />
+        </dependencies>
     </metadata>
     <files>
         <file src="dotnetsysmon.cpu\bin\Release\dotnetsysmon.cpu.dll" target="lib\net45\dotnetsysmon.cpu.dll" />
