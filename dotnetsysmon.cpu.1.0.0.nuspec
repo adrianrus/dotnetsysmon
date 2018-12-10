@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>dotnetsysmon.cpu</id>
+        <version>1.0.0</version>
+        <title>dotnetsysmon.cpu</title>
+        <authors>arus</authors>
+        <projectUrl>https://github.com/adrianrus/dotnetsysmon</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Monitor CPU usage</description>
+        <language />
+    </metadata>
+    <files>
+        <file src="dotnetsysmon.cpu\bin\Release\dotnetsysmon.cpu.dll" target="lib\net45\dotnetsysmon.cpu.dll" />
+    </files>
+</package>
