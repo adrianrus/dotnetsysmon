@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu", "dotnetsysmon.cpu\dotnetsysmon.cpu.csproj", "{AAE274C5-7934-440B-9242-2954FDD13293}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetsysmon.cpu", "dotnetsysmon.cpu\dotnetsysmon.cpu.csproj", "{AAE274C5-7934-440B-9242-2954FDD13293}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.benchmark", "dotnetsysmon.cpu.benchmark\dotnetsysmon.cpu.benchmark.csproj", "{B35298F2-5DC7-464B-8DCB-B45B9F265EEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetsysmon.cpu.benchmark", "dotnetsysmon.cpu.benchmark\dotnetsysmon.cpu.benchmark.csproj", "{B35298F2-5DC7-464B-8DCB-B45B9F265EEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.demo", "dotnetsysmon.cpu.demo\dotnetsysmon.cpu.demo.csproj", "{97F4E159-3FDE-4A32-BC89-04AED7619CB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetsysmon.cpu.demo", "dotnetsysmon.cpu.demo\dotnetsysmon.cpu.demo.csproj", "{97F4E159-3FDE-4A32-BC89-04AED7619CB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetsysmon.cpu.tests", "dotnetsysmon.cpu.tests\dotnetsysmon.cpu.tests.csproj", "{70249CB1-8F7E-4C71-993D-9286E39CE10A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetsysmon.cpu.tests", "dotnetsysmon.cpu.tests\dotnetsysmon.cpu.tests.csproj", "{70249CB1-8F7E-4C71-993D-9286E39CE10A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "top", "top\top.csproj", "{9860258D-0FC3-422E-AF64-F0009AF1DF21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70249CB1-8F7E-4C71-993D-9286E39CE10A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9860258D-0FC3-422E-AF64-F0009AF1DF21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9860258D-0FC3-422E-AF64-F0009AF1DF21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9860258D-0FC3-422E-AF64-F0009AF1DF21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9860258D-0FC3-422E-AF64-F0009AF1DF21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
