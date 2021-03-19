@@ -8,6 +8,16 @@ namespace DotnetSysMon.Cpu
 {
     public partial class CpuUsage
     {
+        public CpuUsage()
+        {
+            InitializeCache();
+        }
+
+        private void InitializeCache()
+        {
+            GetProcesses().Count();
+        }
+
         public IEnumerable<ProcessCpuUsage> GetProcessesDescending()
         {
             return GetProcesses().OrderByDescending(p => p.CpuUsage);
@@ -25,7 +35,8 @@ namespace DotnetSysMon.Cpu
                         oldData,
                         newProcessData,
                         p.Info.th32ProcessID,
-                        p.TotalProcessorTime)));
+                        p.TotalProcessorTime),
+                        p.TotalProcessorTime));
             }
             finally
             {
